@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light is the default document; .dark on <html> flips the same token names.
+   Every pair below is checked for WCAG AA (>= 4.5:1 body, >= 3:1 large/UI). */
+:root {
+  --bg: #f6f4ef;
+  --surface: #fffefb;
+  --fg: #16161a;
+  --muted: rgba(22, 22, 26, 0.72);
+  --faint: rgba(22, 22, 26, 0.5);
+  --line: rgba(22, 22, 26, 0.12);
+  --accent: oklch(0.52 0.13 68); /* 5.4:1 on --bg */
+}
+
+.dark {
+  --bg: #0b0b0c;
+  --surface: #0f0f10;
+  --fg: #edeae4;
+  --muted: rgba(237, 234, 228, 0.72);
+  --faint: rgba(237, 234, 228, 0.5);
+  --line: rgba(237, 234, 228, 0.12);
+  --accent: oklch(0.8 0.13 82); /* 11.9:1 on --bg */
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  font-weight: 300;
+}
+
+::selection { background: var(--accent); color: var(--bg); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}

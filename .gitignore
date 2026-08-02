@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+.env*
+!.env.example
+infra/.terraform
+infra/*.tfvars
+*.tfstate*
+.DS_Store
